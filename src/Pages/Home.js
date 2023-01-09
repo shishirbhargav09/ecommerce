@@ -2,15 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import main_banner from "../assets/0.jpg";
 import Brands_card from "../Components/Brands_card";
-import img1 from '../assets/1.jpg'
-import img2 from '../assets/2.jpg'
-import img3 from '../assets/3.jpg'
-import img4 from '../assets/4.jpg'
-import img5 from '../assets/5.jpg'
+import img1 from "../assets/1.jpg";
+import img2 from "../assets/2.jpg";
+import img3 from "../assets/3.jpg";
+import img4 from "../assets/4.jpg";
+import img5 from "../assets/5.jpg";
 
 function Home() {
-    return (
-        <>
+  return (
+    <>
       <Container>
         <div className="home_1">
           <img src={main_banner} alt="main_banner" />
@@ -23,19 +23,19 @@ function Home() {
       </Container>
       <FeaturedBrands>
         <h2>Featured Brands</h2>
-        <hr className="hr"/>
+        <hr className="hr" />
         <div className="brands">
-            <Brands_card
-              image={
-                "https://media.designrush.com/inspiration_images/134802/conversions/_1511456315_653_apple-preview.jpghttps://media.designrush.com/inspiration_images/134802/conversions/_1511456315_653_apple-preview.jpg"
-              }
-            />
-            <Brands_card
+          <Brands_card
+            image={
+              "https://media.designrush.com/inspiration_images/134802/conversions/_1511456315_653_apple-preview.jpghttps://media.designrush.com/inspiration_images/134802/conversions/_1511456315_653_apple-preview.jpg"
+            }
+          />
+          <Brands_card
             image={"https://d3pbw4826yao71.cloudfront.net/ogimage.jpg"}
           />
           <Brands_card
             image={
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/2048px-Xiaomi_logo.svg.png"
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/2048px-Xiaomi_logo.svg.png"
             }
           />
           <Brands_card
@@ -44,7 +44,7 @@ function Home() {
             }
           />
           <Brands_card image={"https://www.sheeko.in/media/Noise_logo.png"} />
-          
+
           <Brands_card
             image={
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe9RBPgdKPsr0z1uKN0vDLlBYppoNVV5Xxew&usqp=CAU"
@@ -53,10 +53,25 @@ function Home() {
         </div>
       </FeaturedBrands>
       <GridImages>
-            <div className="row1 col1">
-                <img src={img1} alt="" />
-            </div>
-            <div className="row1 col2"></div>
+        <div className="row1">
+          <div className="col1">
+            <img src={img1} alt="" />
+          </div>
+          <div className="col2">
+            <img src={img2} alt="" />
+          </div>
+        </div>
+        <div className="row2">
+          <div className="col1">
+            <img src={img3} alt="" />
+          </div>
+          <div className="col2">
+            <img src={img4} alt="" />
+          </div>
+          <div className="col2">
+            <img src={img5} alt="" />
+          </div>
+        </div>
       </GridImages>
     </>
   );
@@ -64,16 +79,47 @@ function Home() {
 
 export default Home;
 const GridImages = styled.div`
-height: 100vh;
+  height: 100vh;
 
-padding: 2rem;
-width: 100%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-overflow: hidden;
-`
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  img{
+    padding: 0.2rem;
+    height: 100%;
+    width: 100%;
+  }
+  @media only screen and ( max-width: 1000px) {
+    padding: 0;
+    height: 50vh;
+  }
+  .row1 {
+    display: flex;
+    .col1 {
+      flex: 1;
+    }
+    .col2 {
+      flex: 1;
+    }
+  }
+  .row2 {
+    display: flex;
+    .col1 {
+      flex: 1;
+    }
+    .col2 {
+      flex: 1;
+    }
+    .col3 {
+      flex: 1;
+    }
+  }
+  
+`;
 
 const FeaturedBrands = styled.div`
   height: 100vh;
@@ -88,15 +134,13 @@ const FeaturedBrands = styled.div`
   h2 {
     font-size: 40px;
     font-weight: 500;
-    
   }
-  hr{
+  hr {
     background-color: black;
     /* border: solid black ; */
     height: 5px;
     width: 80%;
     margin-top: 50px;
-    
   }
   .brands {
     display: flex;
