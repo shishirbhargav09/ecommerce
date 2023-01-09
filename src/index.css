@@ -9,8 +9,13 @@ body {
 * {
   box-sizing: border-box;
 }
-h1 {
-  color: #238ac5;
+h2 {
+  margin: 5px;
+  font-size: 40px;
+  background: #117ccf;
+    background: linear-gradient(to top right, #117ccf 25%, #34cf96 67%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
   
