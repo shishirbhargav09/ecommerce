@@ -26,7 +26,10 @@ function Navbar() {
 export default Navbar;
 
 const Container = styled.div`
-  background-color: wheat;
+z-index: 2;
+  background-color: aliceblue;
+  position: sticky;
+  top: 0;
   height: 80px;
   width: 100%;
   display: flex;
@@ -48,8 +51,10 @@ const Container = styled.div`
       flex-direction: row;
       justify-content: center;
       align-items: center;
+      gap: 1rem;
     svg{
-        padding: 0 10px;
+        /* padding: 0 10px; */
+        
         font-size: 25px;
     }
   }
