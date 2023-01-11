@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { GoWatch } from "react-icons/go";
-import { BsFillPersonFill } from "react-icons/bs";
-import { ImCart } from "react-icons/im";
-import { AiFillHeart } from "react-icons/ai";
+import WatchIcon from '@mui/icons-material/Watch';
+import PersonIcon from '@mui/icons-material/Person';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Link } from "react-router-dom";
 
 function Navbar() {
@@ -13,19 +13,19 @@ function Navbar() {
       <Link to='/'>
 
         <div className="logo">
-          <GoWatch style={{ fontSize: "25px" }} />
+          <WatchIcon style={{ fontSize: "25px" }} />
           <h1>Watch Store</h1>
         </div>
         </Link>
       </div>
       <div className="right_nav">
         <Link to='/login'>
-        <BsFillPersonFill />
+        <PersonIcon />
         </Link>
         <Link to='/cart'>
-        <ImCart />
+        <ShoppingCartIcon />
         </Link>
-        <AiFillHeart />
+        <FavoriteBorderIcon />
       </div>
     </Container>
   );

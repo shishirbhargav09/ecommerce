@@ -1,10 +1,12 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import ItemCard from '../Components/ItemCard'
-import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-hot-toast';
 
 function Products() {
+  const dispatch = useDispatch();
     const [products, setProducts] = useState([])
     useEffect(() => {
       const fetchProducts = async () => {
@@ -14,6 +16,12 @@ function Products() {
       }
       fetchProducts()
     }, [])
+
+    const addToCartHandler = (options) => {
+      dispatch({ type: "addToCart", payload: options });
+      dispatch({ type: "calculatePrice" });
+      toast.success("Added To Cart");
+    };
     
   return (
     <Container>
@@ -25,6 +33,8 @@ function Products() {
                 price={item.price}
                 description={item.description}
                 image={item.image}
+                handler={addToCartHandler}
+                id={item._id}
                 
                 
                 />

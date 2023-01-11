@@ -8,6 +8,8 @@ import img3 from "../assets/3.jpg";
 import img4 from "../assets/4.jpg";
 import img5 from "../assets/5.jpg";
 import Products from "./Products";
+import Button from '@mui/material/Button';
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -18,7 +20,8 @@ function Home() {
           <div className="home_1_quote">
             <h2>Watch Store</h2>
             <p>"ALL Great Achievements Requir Time!"</p>
-            <button>Shop Now</button>
+            <Link to='#'>
+            <Button>Shop Now</Button></Link>
           </div>
         </div>
       </Container>
@@ -76,7 +79,9 @@ function Home() {
           </div>
         </div></div>
       </GridImages>
+      <div id="products">
       <Products/>
+      </div>
     </>
   );
 }

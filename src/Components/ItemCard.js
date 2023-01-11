@@ -1,35 +1,42 @@
 import React from "react";
 import styled from "styled-components";
+import Button from '@mui/material/Button';
 
-function ItemCard({ title, brand, price, image, description }) {
+function ItemCard({ title, brand, price, image, description, handler, id }) {
   return (
     <Container>
-      <img src={image} alt="" />
+      <img src={image} alt={title}/>
       <h3>{title}</h3>
       <h4>₹{price}</h4>
-      <p>{description.substring(0,50)}...</p>
-      <Button>Add to Cart</Button>
+      <p>{description.slice(0,50)}...</p>
+      <Button variant="contained" onClick={() => {
+        handler({ title, price, id, quantity: 1, image })
+       
+      }}>Add to Cart</Button>
     </Container>
   );
 }
 
 export default ItemCard;
 
-const Button = styled.button`
-width: fit-content;
-height: 35px;
-background-color: #238AC5;
-border-radius: 7px;
-cursor: pointer;
-padding: 0.5rem;
-margin: 0.5rem;
-border: none;
-display: flex;
-justify-content: center;
-align-items: center;
-;
+// const Button = styled.button`
+// width: fit-content;
+// height: 35px;
+// background-color: #238AC5;
+// border-radius: 7px;
+// cursor: pointer;
+// padding: 0.5rem;
+// margin: 0.5rem;
+// border: none;
+// display: flex;
+// justify-content: center;
+// align-items: center;
+// &:hover{
+//   background-color: #203AC5;
+// }
+// ;
 
-`
+// `
 const Container = styled.div`
   
   width: 15rem;
@@ -56,10 +63,10 @@ const Container = styled.div`
   border-radius: 7px;
   margin: 1rem;
   overflow: hidden;
-  &:hover{
+  /* &:hover{
     transition: 2s ease;
     transform: scale(1.1);
-  }
+  } */
    
     img {
       width: 60%;

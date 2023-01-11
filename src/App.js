@@ -1,4 +1,5 @@
 import React from "react";
+import { Toaster } from "react-hot-toast";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
@@ -16,6 +17,7 @@ function App() {
         <Route path="/cart" exact element={<Cart/>}/>
       </Routes>
       <Footer/>
+      <Toaster />
     </BrowserRouter>
   );
 }
