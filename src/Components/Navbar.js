@@ -22,7 +22,9 @@ function Navbar() {
         <Link to='/login'>
         <BsFillPersonFill />
         </Link>
+        <Link to='/cart'>
         <ImCart />
+        </Link>
         <AiFillHeart />
       </div>
     </Container>
@@ -32,7 +34,7 @@ function Navbar() {
 export default Navbar;
 
 const Container = styled.div`
-z-index: 2;
+z-index: 9999;
   background-color: aliceblue;
   position: sticky;
   top: 0;
