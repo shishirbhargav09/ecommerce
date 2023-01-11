@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import PersonIcon from '@mui/icons-material/Person';
-import HttpsIcon from '@mui/icons-material/Https';
-import EmailIcon from '@mui/icons-material/Email';
+import PersonIcon from "@mui/icons-material/Person";
+import HttpsIcon from "@mui/icons-material/Https";
+import EmailIcon from "@mui/icons-material/Email";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+
 import { toast } from "react-hot-toast";
 
 function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const loginHandler = (e) => {
-
-    toast.error("Wrong Credentials")
+    
+    if (email === "test@gmail.com" && password === "test@gmail.com") {
+      toast.success("Login Successfully")
+      return navigate('/addproduct')
+    }
+    toast.error("Wrong Credentials");
   };
   return (
     <Container>
@@ -55,10 +60,13 @@ function Login() {
             }}
           />
         </div>
-        <Button onClick={() => { toast.error("Wrong Credentials") }}>LOGIN</Button>
-       
-
-        
+        <Button
+          onClick={() => {
+            loginHandler()
+          }}
+        >
+          LOGIN
+        </Button>
       </FormContainer>
     </Container>
   );

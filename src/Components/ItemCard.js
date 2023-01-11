@@ -13,6 +13,9 @@ function ItemCard({ title, brand, price, image, description, handler, id }) {
         handler({ title, price, id, quantity: 1, image })
        
       }}>Add to Cart</Button>
+      <div className="badge">
+        {brand}
+      </div>
     </Container>
   );
 }
@@ -41,6 +44,7 @@ const Container = styled.div`
   
   width: 15rem;
   height: 25rem;
+  position: relative;
   display: flex;
   padding: 5px;
   align-items: center;
@@ -73,5 +77,19 @@ const Container = styled.div`
       margin: 0.2rem;
       /* height: 100%; */
       object-fit: cover;
+    }
+
+    .badge{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: yellow;
+      width: 80px;
+      height: 30px;
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      border-radius: 8px;
+
     }
 `;

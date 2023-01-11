@@ -7,7 +7,7 @@ import styled from "styled-components";
 function AddProduct() {
   const [title, settitle] = useState("");
   const [brand, setBrand] = useState("");
-  const [price, setprice] = useState();
+  const [price, setprice] = useState("");
   const [description, setdescription] = useState("");
   const [image, setimage] = useState("");
   const addHandle = (e) => {
@@ -46,7 +46,7 @@ function AddProduct() {
             placeholder="title"
             onChange={(e) => {
               settitle(e.target.value);
-              console.log(title);
+              // console.log(title);
             }}
           />
           <input
@@ -56,7 +56,7 @@ function AddProduct() {
             placeholder="brand"
             onChange={(e) => {
               setBrand(e.target.value);
-              console.log(title);
+              // console.log(title);
             }}
           />
           <input
@@ -86,7 +86,7 @@ function AddProduct() {
               setimage(e.target.value);
             }}
           />
-          <Button variant="contained" onSubmit={addHandle}>
+          <Button variant="contained" type="submit" >
             Submit
           </Button>
         </form>
@@ -98,16 +98,23 @@ function AddProduct() {
 export default AddProduct;
 
 const Container = styled.div`
-  height: calc(100vh - 190px);
+  height: calc(100vh - 160px);
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+
   flex-direction: column;
   .form-container {
     background-color: aliceblue;
     width: 90%;
+    border-radius: 8px;
     max-width: 40rem;
+
+    box-shadow: 3px 4px 10px 1px rgba(0, 0, 0, 0.52);
+    -webkit-box-shadow: 3px 4px 10px 1px rgba(0, 0, 0, 0.52);
+    -moz-box-shadow: 3px 4px 10px 1px rgba(0, 0, 0, 0.52);
+
     form {
       margin: 2rem;
 

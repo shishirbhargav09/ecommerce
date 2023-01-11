@@ -20,8 +20,8 @@ function Home() {
           <div className="home_1_quote">
             <h2>Watch Store</h2>
             <p>"ALL Great Achievements Requir Time!"</p>
-            <Link to='#'>
-            <Button>Shop Now</Button></Link>
+            <a href='#products'>
+            <Button>Shop Now</Button></a>
           </div>
         </div>
       </Container>

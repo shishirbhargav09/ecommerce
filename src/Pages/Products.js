@@ -52,7 +52,7 @@ width: 100%;
 display: flex;
 flex-wrap: wrap;
 padding: 0.2rem;
-padding: 2rem 0;
+padding: 5rem 0;
 justify-content: center;
 align-items: center;
 
