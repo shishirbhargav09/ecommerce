@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { BsPersonCircle } from "react-icons/bs";
-import { HiLockClosed } from "react-icons/hi";
-import { MdEmail } from "react-icons/md";
+import PersonIcon from '@mui/icons-material/Person';
+import HttpsIcon from '@mui/icons-material/Https';
+import EmailIcon from '@mui/icons-material/Email';
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
@@ -20,13 +20,13 @@ function Login() {
       <FormContainer>
         <h1>Login</h1>
 
-        <BsPersonCircle
+        <PersonIcon
           style={{
             fontSize: "8rem",
           }}
         />
         <div className="email">
-          <MdEmail
+          <EmailIcon
             style={{
               fontSize: "2rem",
             }}
@@ -41,7 +41,7 @@ function Login() {
           />
         </div>
         <div className="email">
-          <HiLockClosed
+          <HttpsIcon
             style={{
               fontSize: "2rem",
             }}
