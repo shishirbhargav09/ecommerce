@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import main_banner from "../assets/0.jpg";
-import Brands_card from "../Components/Brands_card";
+import Brandscard from "../Components/Brandscard";
 import img1 from "../assets/1.jpg";
 import img2 from "../assets/2.jpg";
 import img3 from "../assets/3.jpg";
@@ -25,27 +25,27 @@ function Home() {
         <h2>Featured Brands</h2>
         <hr className="hr" />
         <div className="brands">
-          <Brands_card
+          <Brandscard
             image={
               "https://media.designrush.com/inspiration_images/134802/conversions/_1511456315_653_apple-preview.jpghttps://media.designrush.com/inspiration_images/134802/conversions/_1511456315_653_apple-preview.jpg"
             }
           />
-          <Brands_card
+          <Brandscard
             image={"https://d3pbw4826yao71.cloudfront.net/ogimage.jpg"}
           />
-          <Brands_card
+          <Brandscard
             image={
               "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/2048px-Xiaomi_logo.svg.png"
             }
           />
-          <Brands_card
+          <Brandscard
             image={
               "https://sustainhealth.fit/wp-content/uploads/2019/09/fitbit-logo.jpg"
             }
           />
-          <Brands_card image={"https://www.sheeko.in/media/Noise_logo.png"} />
+          <Brandscard image={"https://www.sheeko.in/media/Noise_logo.png"} />
 
-          <Brands_card
+          <Brandscard
             image={
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe9RBPgdKPsr0z1uKN0vDLlBYppoNVV5Xxew&usqp=CAU"
             }
@@ -53,7 +53,9 @@ function Home() {
         </div>
       </FeaturedBrands>
       <GridImages>
-        <div className="row1">
+      <h2>Smart Watches</h2>
+        <hr className="hr" />
+        <div className="grid"><div className="row1">
           <div className="col1">
             <img src={img1} alt="" />
           </div>
@@ -71,7 +73,7 @@ function Home() {
           <div className="col2">
             <img src={img5} alt="" />
           </div>
-        </div>
+        </div></div>
       </GridImages>
     </>
   );
@@ -79,23 +81,32 @@ function Home() {
 
 export default Home;
 const GridImages = styled.div`
-  height: 100vh;
+  /* height: calc(100vh - 0px); */
 
-  padding: 1rem;
+  
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items:center;
   overflow: hidden;
-  img{
+  hr {
+    background-color: black;
+    /* border: solid black ; */
+    height: 5px;
+    width: 80%;
+    margin-top: 50px;
+  }
+  .grid{
+    /* height: 65%; */
+    img{
     padding: 0.2rem;
     height: 100%;
     width: 100%;
   }
   @media only screen and ( max-width: 1000px) {
     padding: 0;
-    height: 50vh;
+    /* height: 25rem; */
   }
   .row1 {
     display: flex;
@@ -118,6 +129,7 @@ const GridImages = styled.div`
       flex: 1;
     }
   }
+  }
   
 `;
 
@@ -132,6 +144,7 @@ const FeaturedBrands = styled.div`
   align-items: center;
   overflow: hidden;
   h2 {
+    text-align: center;
     font-size: 40px;
     font-weight: 500;
   }
@@ -206,5 +219,9 @@ const Container = styled.div`
       border-radius: 7px;
       border: none;
     }
+  }
+  @media only screen and ( max-width: 1000px) {
+    padding: 0;
+    height: 50vh;
   }
 `;

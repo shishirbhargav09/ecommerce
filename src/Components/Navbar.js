@@ -4,18 +4,24 @@ import { GoWatch } from "react-icons/go";
 import { BsFillPersonFill } from "react-icons/bs";
 import { ImCart } from "react-icons/im";
 import { AiFillHeart } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <Container>
       <div className="left_nav">
+      <Link to='/'>
+
         <div className="logo">
           <GoWatch style={{ fontSize: "25px" }} />
           <h1>Watch Store</h1>
         </div>
+        </Link>
       </div>
       <div className="right_nav">
+        <Link to='/login'>
         <BsFillPersonFill />
+        </Link>
         <ImCart />
         <AiFillHeart />
       </div>

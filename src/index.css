@@ -18,7 +18,11 @@ h2 {
     -webkit-text-fill-color: transparent;
 }
 
-  
+  a:link{
+    /* color: black;
+    background-color: transparent; */
+    text-decoration: none;
+  }
 ::-webkit-scrollbar {
   width: 2px;
   height: 2px;
