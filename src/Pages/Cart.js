@@ -187,6 +187,9 @@ const Cartitem = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr 1fr 1fr;
   align-items: center;
+  article{
+    padding: 1rem;
+  }
   img {
     width: 100%;
     height: 200px;
@@ -266,6 +269,7 @@ const Container = styled.div`
     justify-content: center;
     flex-direction: row;
 
+
     h3 {
       margin: 1rem;
       font: 100 1.8rem "Roboto";
@@ -276,17 +280,21 @@ const Container = styled.div`
       }
     }
   }
-  @media only screen and (max-width: 550) {
-    .amount{
+  @media only screen and (max-width: 550px) {
+    
+     .amount{
+      padding: 1rem;
       h3 {
-      margin: 1rem;
-      font: 50 1.8rem "Roboto";
-      letter-spacing: 2px;
+      margin: 0.2rem;
+      
+      font: 50 1.2rem "Roboto";
+      letter-spacing: 0px;
 
       &:last-of-type {
         font-weight: 600;
-      }
+      
     }
     }
+     }
   }
 `;

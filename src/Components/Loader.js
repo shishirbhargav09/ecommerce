@@ -4,7 +4,7 @@ import React from 'react'
 function Loader() {
   return (
     <Container>
-       <div class="custom-loader"></div>
+       <div className="custom-loader"></div>
     </Container>
   )
 }
