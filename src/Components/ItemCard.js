@@ -13,9 +13,10 @@ function ItemCard({ title, brand, price, image, description, handler, id }) {
         handler({ title, price, id, quantity: 1, image })
        
       }}>Add to Cart</Button>
-      <div className="badge">
+      {brand? <div className="badge">
         {brand}
-      </div>
+      </div> : ""}
+      
     </Container>
   );
 }

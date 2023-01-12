@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import main_banner from "../assets/0.jpg";
+// import main_banner from "../assets/0.jpg";
 import Brandscard from "../Components/Brandscard";
 import img1 from "../assets/1.jpg";
 import img2 from "../assets/2.jpg";
@@ -9,7 +9,7 @@ import img4 from "../assets/4.jpg";
 import img5 from "../assets/5.jpg";
 import Products from "./Products";
 import Button from '@mui/material/Button';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function Home() {
   return (

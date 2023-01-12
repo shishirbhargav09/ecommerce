@@ -19,9 +19,16 @@ h2 {
 }
 
   a:link{
-    /* color: black;
-    background-color: transparent; */
+   
     text-decoration: none;
+  }
+  a::after{
+    
+    color: black;
+  }
+  a:active{
+    
+    color: none;
   }
 ::-webkit-scrollbar {
   width: 2px;

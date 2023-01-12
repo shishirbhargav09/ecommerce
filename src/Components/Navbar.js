@@ -3,7 +3,7 @@ import styled from "styled-components";
 import WatchIcon from "@mui/icons-material/Watch";
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+// import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -29,7 +29,7 @@ function Navbar() {
             { cartItems.length> 0 ? <div className="cart_number">{cartItems.length}</div> : ""}
           </div>
         </Link>
-        <FavoriteBorderIcon />
+        {/* <FavoriteBorderIcon /> */}
       </div>
     </Container>
   );
@@ -72,7 +72,7 @@ const Container = styled.div`
     .cart {
       position: relative;
       .cart_number {
-        background-color: gray;
+        background-color: white;
         border-radius: 50%;
         position: absolute;
         top: -8px;

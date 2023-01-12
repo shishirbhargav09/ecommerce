@@ -1,11 +1,89 @@
 import React from "react";
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from "@mui/icons-material/Delete";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { Button } from "@mui/material";
+import axios from "axios";
 
 const Cart = () => {
-  const { cartItems, subTotal, tax, shipping, total } = useSelector(
+  function loadScript(src) {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = () => {
+        resolve(true);
+      };
+      script.onerror = () => {
+        resolve(false);
+      };
+      document.body.appendChild(script);
+    });
+  }
+
+  async function displayRazorpay() {
+    const res = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+
+    if (!res) {
+      alert("Razorpay SDK failed to load. Are you online?");
+      return;
+    }
+
+    // creating a new order
+    const result = await axios.post("http://localhost:3001/payment/orders", {
+      amount: total
+    });
+
+    if (!result) {
+      alert("Server error. Are you online?");
+      return;
+    }
+
+    // Getting the order details back
+    const { amount, id: order_id, currency } = result.data;
+
+    const options = {
+      key: "rzp_test_oaVoxyDw1pAboG", // Enter the Key ID generated from the Dashboard
+      amount: amount.toString(),
+      currency: currency,
+      name: "Chris Evans Corp.",
+      description: "Test Transaction",
+      image: "",
+      order_id: order_id,
+      handler: async function (response) {
+        const data = {
+          orderCreationId: order_id,
+          razorpayPaymentId: response.razorpay_payment_id,
+          razorpayOrderId: response.razorpay_order_id,
+          razorpaySignature: response.razorpay_signature,
+        };
+
+        const result = await axios.post(
+          "http://localhost:3001/payment/success",
+          data
+        );
+
+        alert(result.data.msg);
+      },
+      prefill: {
+        name: "Chris Evans",
+        email: "ChrisEvans2s44@example.com",
+        contact: "9999999999",
+      },
+      notes: {
+        address: "Chris Evans Corporate Office",
+      },
+      theme: {
+        color: "#1976D2",
+      },
+    };
+
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+  }
+
+  const { cartItems, subTotal, shipping, total } = useSelector(
     (state) => state.cart
   );
   const dispatch = useDispatch();
@@ -58,9 +136,11 @@ const Cart = () => {
       <div className="amount">
         <h3>Subtotal: ₹{subTotal}</h3>
         <h3>Shipping: ₹{shipping}</h3>
-        
+
         <h3>Total: ₹{total}</h3>
-        <Button variant="contained">Pay Now</Button>
+        <Button variant="contained" onClick={displayRazorpay}>
+          Pay Now
+        </Button>
       </div>
     </Container>
   );
@@ -110,7 +190,7 @@ const Cartitem = styled.div`
     width: 100%;
     height: 200px;
     border-radius: 7px;
-    
+
     object-fit: contain;
   }
   .content {
@@ -136,7 +216,6 @@ const Cartitem = styled.div`
       height: 30px;
       display: grid;
       place-items: center;
-      
     }
   }
 
@@ -165,7 +244,7 @@ const Container = styled.div`
     /* flex: 5; */
     padding: 2rem;
     overflow-y: auto;
-    
+
     h1 {
       color: black;
       font: 100 2rem "Roboto";
@@ -185,7 +264,7 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: row;
-   
+
     h3 {
       margin: 1rem;
       font: 100 1.8rem "Roboto";
@@ -196,13 +275,10 @@ const Container = styled.div`
       }
     }
   }
-   @media only screen and (max-width: 550) {
-    
-      
-     .amount{
-       height: 40vh;
+  @media only screen and (max-width: 550) {
+    .amount {
+      height: 40vh;
       flex-direction: column;
-     }
-    
+    }
   }
 `;

@@ -7,6 +7,7 @@ import AddProduct from "./Pages/AddProduct";
 import Cart from "./Pages/Cart";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
+import SuccessfullTransaction from "./Pages/SuccessfullTransaction";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" exact element={<Home/>}/>
         <Route path="/login" exact element={<Login/>}/>
         <Route path="/cart" exact element={<Cart/>}/>
+        <Route path="/successfulltransaction" exact element={<SuccessfullTransaction/>}/>
         <Route path="/addproduct" exact element={<AddProduct/>}/>
       </Routes>
       <Footer/>
