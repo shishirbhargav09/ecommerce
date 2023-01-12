@@ -53,7 +53,7 @@ const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   z-index: 5;
-  h3{
+  h3,h4{
     padding: 0;
     margin: 0;
   }
@@ -68,16 +68,17 @@ const Container = styled.div`
   border-radius: 7px;
   margin: 1rem;
   overflow: hidden;
-  /* &:hover{
+  &:hover{
     transition: 2s ease;
-    transform: scale(1.1);
-  } */
+    transform: scale(1.03);
+  }
    
     img {
-      width: 60%;
+      width: 50%;
+      height: 50%;
       margin: 0.2rem;
       /* height: 100%; */
-      object-fit: cover;
+      object-fit: contain;
     }
 
     .badge{
