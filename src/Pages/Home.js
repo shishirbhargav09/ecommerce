@@ -19,7 +19,7 @@ function Home() {
           <img src="https://img.freepik.com/free-psd/mockup-three-smart-watches_125540-1663.jpg?w=2000" alt="main_banner" />
           <div className="home_1_quote">
             <h2>Watch Store</h2>
-            <p>"ALL Great Achievements Requir Time!"</p>
+            <p>"ALL Great Achievements Require Time!"</p>
             <a href='#products'>
             <Button>Shop Now</Button></a>
           </div>
