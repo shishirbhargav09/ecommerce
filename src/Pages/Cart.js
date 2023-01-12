@@ -2,6 +2,7 @@ import React from "react";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { Button } from "@mui/material";
 
 const Cart = () => {
   const { cartItems, subTotal, tax, shipping, total } = useSelector(
@@ -55,10 +56,11 @@ const Cart = () => {
       </main>
 
       <div className="amount">
-        <h2>Subtotal: ₹{subTotal}</h2>
-        <h2>Shipping: ₹{shipping}</h2>
-        <h2>Tax: ₹{tax}</h2>
-        <h2>Total: ₹{total}</h2>
+        <h3>Subtotal: ₹{subTotal}</h3>
+        <h3>Shipping: ₹{shipping}</h3>
+        
+        <h3>Total: ₹{total}</h3>
+        <Button variant="contained">Pay Now</Button>
       </div>
     </Container>
   );
@@ -96,9 +98,11 @@ export default Cart;
 const Cartitem = styled.div`
   background-color: aliceblue;
   width: 100%;
+  max-width: 80rem;
   border-radius: 10px;
   margin: 2rem 0;
   padding: 1rem;
+
   display: grid;
   grid-template-columns: 1fr 3fr 1fr 1fr;
   align-items: center;
@@ -106,12 +110,14 @@ const Cartitem = styled.div`
     width: 100%;
     height: 200px;
     border-radius: 7px;
+    
     object-fit: contain;
   }
   .content {
     display: flex;
     align-items: center;
     height: 100%;
+    margin: 0.3rem;
     button {
       width: 30px;
       height: 30px;
@@ -130,6 +136,7 @@ const Cartitem = styled.div`
       height: 30px;
       display: grid;
       place-items: center;
+      
     }
   }
 
@@ -147,11 +154,15 @@ const Cartitem = styled.div`
 const Container = styled.div`
   height: 100vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
+
   /* grid-template-columns: 4fr 1fr; */
 
   main {
-    flex: 5;
+    /* flex: 5; */
     padding: 2rem;
     overflow-y: auto;
     
@@ -161,19 +172,21 @@ const Container = styled.div`
     }
   }
   .amount {
-    flex: 1;
+    /* flex: 1; */
     /* border-radius: 100px 0 0 100px; */
     background-color: aliceblue;
-    position: sticky;
+    position: fixed;
     bottom: 0;
+    z-index: 5;
     color: black;
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
     box-shadow: -10px 0px 10px rgba(0, 0, 0, 0.182);
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    h2 {
+    flex-direction: row;
+   
+    h3 {
       margin: 1rem;
       font: 100 1.8rem "Roboto";
       letter-spacing: 2px;
@@ -182,5 +195,14 @@ const Container = styled.div`
         font-weight: 600;
       }
     }
+  }
+   @media only screen and (max-width: 550) {
+    
+      
+     .amount{
+       height: 40vh;
+      flex-direction: column;
+     }
+    
   }
 `;
