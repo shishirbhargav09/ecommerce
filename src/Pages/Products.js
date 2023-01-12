@@ -4,15 +4,19 @@ import ItemCard from '../Components/ItemCard'
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-hot-toast';
+import Backend_Url from '../constant';
+import Loader from '../Components/Loader';
 
 function Products() {
+  const [loader, setLoader] = useState(true)
   const dispatch = useDispatch();
     const [products, setProducts] = useState([])
     useEffect(() => {
       const fetchProducts = async () => {
-        const {data} = await axios.get("http://localhost:3001/api/products");
+        const {data} = await axios.get(`${Backend_Url}api/products`);
         setProducts([...data]);
         console.log(data);
+        setLoader(false)
       }
       fetchProducts()
     }, [])
@@ -25,6 +29,7 @@ function Products() {
     
   return (
     <Container>
+      {loader && <Loader/>}
         {
             products.map((item) => {
                 return <ItemCard key={item._id} 

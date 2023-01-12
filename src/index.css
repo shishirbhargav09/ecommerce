@@ -18,18 +18,27 @@ h2 {
     -webkit-text-fill-color: transparent;
 }
 
-  a:link{
-   
-    text-decoration: none;
-  }
-  a::after{
-    
-    color: black;
-  }
-  a:active{
-    
-    color: none;
-  }
+a:link {
+  /* color: red; */
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: black;
+}
+
+/* mouse over link */
+a:hover {
+  color: rgb(80, 75, 77);
+}
+
+/* selected link */
+a:active {
+  color: rgb(0, 0, 0);
+  
+}
+
 ::-webkit-scrollbar {
   width: 2px;
   height: 2px;

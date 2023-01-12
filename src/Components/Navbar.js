@@ -44,6 +44,7 @@ const Container = styled.div`
   top: 0;
   height: 80px;
   width: 100%;
+  box-shadow: -10px 0px 10px rgba(0, 0, 0, 0.182);
   display: flex;
   justify-content: space-around;
   align-items: center;

@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import axios from "axios";
 import React, { useState } from "react";
+import Backend_Url from '../constant'
 
 import toast from "react-hot-toast";
 import styled from "styled-components";
@@ -14,7 +15,7 @@ function AddProduct() {
     e.preventDefault();
     console.log("clicked");
     axios
-      .post("http://localhost:3001/api/addproduct", {
+      .post(`${Backend_Url}api/addproduct`, {
         title: title,
         brand: brand,
         price: price,

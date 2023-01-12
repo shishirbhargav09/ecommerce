@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { Button } from "@mui/material";
 import axios from "axios";
+import Backend_Url from "../constant";
 
 const Cart = () => {
   function loadScript(src) {
@@ -31,8 +32,8 @@ const Cart = () => {
     }
 
     // creating a new order
-    const result = await axios.post("http://localhost:3001/payment/orders", {
-      amount: total
+    const result = await axios.post(`${Backend_Url}payment/orders`, {
+      amount: total,
     });
 
     if (!result) {
@@ -60,7 +61,7 @@ const Cart = () => {
         };
 
         const result = await axios.post(
-          "http://localhost:3001/payment/success",
+          `${Backend_Url}payment/success`,
           data
         );
 
@@ -113,7 +114,7 @@ const Cart = () => {
 
   return (
     <Container>
-      <main>
+      <div className="main">
         {cartItems.length > 0 ? (
           cartItems.map((i) => (
             <CartItem
@@ -131,7 +132,7 @@ const Cart = () => {
         ) : (
           <h1>No Items Yet</h1>
         )}
-      </main>
+      </div>
 
       <div className="amount">
         <h3>Subtotal: ₹{subTotal}</h3>
@@ -240,9 +241,9 @@ const Container = styled.div`
 
   /* grid-template-columns: 4fr 1fr; */
 
-  main {
+  .main {
     /* flex: 5; */
-    padding: 2rem;
+    padding: 1rem;
     overflow-y: auto;
 
     h1 {
@@ -276,9 +277,16 @@ const Container = styled.div`
     }
   }
   @media only screen and (max-width: 550) {
-    .amount {
-      height: 40vh;
-      flex-direction: column;
+    .amount{
+      h3 {
+      margin: 1rem;
+      font: 50 1.8rem "Roboto";
+      letter-spacing: 2px;
+
+      &:last-of-type {
+        font-weight: 600;
+      }
+    }
     }
   }
 `;
